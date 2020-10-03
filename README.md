@@ -1,3 +1,5 @@
-# Fullstack Zero
+# Full Stack Horse
 
-Project containing basic projects.
+Website for example projects for full stack development.
+
+https://fullstackhorse.com

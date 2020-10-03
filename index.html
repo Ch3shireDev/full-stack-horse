@@ -6,9 +6,10 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0"
         >
-        <title>Fullstack Zero</title>
+        <title>Full Stack Horse</title>
+        <meta name="description" content="Website containing example projects to jump start your full stack work.">
         <style>
-        body,html {
+        body, html {
             margin:0;
             line-height: 1.6;
             font-size: 18px;
@@ -24,9 +25,11 @@
             max-width: 800px;
             padding: 0 10px;
             margin: 40px auto;
+            margin-top:0;
             display:flex;
             flex-direction: column;
         }
+
 
         #body{
             flex-grow: 1;
@@ -36,16 +39,36 @@
             line-height: 1.2
         }
 
+        h1{
+            font-size: 3rem;
+            letter-spacing: 0.5rem;
+        }
+
+        li{
+            margin-top: 15px;
+        }
+
         a{
             color: #666;
             text-decoration: none;
+        }
+
+        #image{
+            background:url("/data/logo.webp");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            height:350px;
+            margin:auto;
+            margin-bottom: 4rem;
         }
     </style>
     </head>
     <body>
         <div id="content">
             <div id="header">
-                <h1>Fullstack Zero</h1>
+                <h1 style="text-align: center;">Full Stack Horse</h1>
+                <div id="image"></div>
                 <p>
                     Website containing basic minimal examples for various fullstack projects.
                 </p>
@@ -53,14 +76,13 @@
             <div id="body">
                 <ul>
                     <li>
-                        <a href="/data/ASPNETCore-3.1+EFCore-3.8.1+mssql-linux.zip">
-                            (2020/10/03) ASPNETCore 3.1 + EFCore 3.8.1 + MSSQL Linux + Docker Compose
+                        <a href="/data/ASP.NET-Core-3.1-EFCore-3.8.1-MSSQL-Docker.zip">
+                            (2020/10/03) ASP.NET Core 3.1 + EFCore 3.8.1 + MSSQL Linux + Docker
                         </a>
-                        <a
-                            href="http://fullstackzero.website/data/ASPNETCore-3.1+EFCore-3.8.1+mssql-linux.zip"
-                            (mirror)
-                        >
-                            (mirror)
+                    </li>
+                    <li>
+                        <a href="/data/ASP.NET-Core-3.1-EFCore-3.1.8-Angular-10-MSSQL-Nginx-Docker.zip">
+                            (2020/10/03) ASP.NET Core 3.1 + EFCore 3.8.1 + MSSQL Linux + Angular 10 + Docker
                         </a>
                     </li>
                 </ul>
