@@ -1,0 +1,54 @@
+
+body, html {
+    margin:0;
+    line-height: 1.6;
+    font-size: 18px;
+    color: #444;
+    height:100%;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+}
+
+#content{
+    flex-grow: 1;
+    max-width: 800px;
+    padding: 0 10px;
+    margin: 40px auto;
+    margin-top:0;
+    display:flex;
+    flex-direction: column;
+}
+
+
+#body{
+    flex-grow: 1;
+}
+
+h1, h2, h3 {
+    line-height: 1.2
+}
+
+h1{
+    font-size: 3rem;
+    letter-spacing: 0.5rem;
+}
+
+li{
+    margin-top: 15px;
+}
+
+a{
+    color: #666;
+    text-decoration: none;
+}
+
+#image{
+    background:url("/data/logo.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:350px;
+    margin:auto;
+    margin-bottom: 4rem;
+}

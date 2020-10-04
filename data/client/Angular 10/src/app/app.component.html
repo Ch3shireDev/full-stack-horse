@@ -1,0 +1,15 @@
+<div *ngFor="let message of messages">
+    <div>
+        <p>{{message.content}}</p>
+    </div>
+</div>
+
+<p>
+    <input [(ngModel)]="content">
+</p>
+<p>
+    <label>Enter content for new message here</label>
+</p>
+<p>
+    <button (click)="submit()">Submit</button>
+</p>
