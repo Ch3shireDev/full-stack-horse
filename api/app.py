@@ -7,12 +7,12 @@ app = Flask(__name__)
 @app.route('/api/project')
 def project():
 
-    api = p.get_apis()[0]
-    client = p.get_clients()[0]
-    server = p.get_servers()[0]
-    platform = p.get_platforms()[0]
+    api = p.get_apis()
+    client = p.get_clients()
+    server = p.get_servers()
+    platform = p.get_platforms()
 
-    data = p.get_project(api, client, server, platform)
+    data = p.get_project(api[0], client[0], server[0], platform[0])
     
     response_body = {"data": data}
     
@@ -27,3 +27,6 @@ def get_data():
                     "platforms": p.get_platforms(),
                     }
     return make_response(jsonify(response_body), 200)
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=80)

@@ -1,24 +1,18 @@
 version: "3"
-services: 
-    db:
-        image: "microsoft/mssql-server-linux"
-        environment:
-            SA_PASSWORD: "Passw0rd"
-            ACCEPT_EULA: "Y"
+services:
     api:
         build: api
         ports: 
             - 3000:80
-        depends_on: 
-            - db
     client:
         build: client
         ports: 
             - 4000:80
     nginx:
-        build: nginx
+        build: server
         ports: 
             - 80:80
+            - 443:443
         restart: always
         depends_on: 
             - client

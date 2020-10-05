@@ -44,7 +44,7 @@ a{
 }
 
 #image{
-    background:url("/data/logo.webp");
+    background:url("logo.webp");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
