@@ -31,7 +31,7 @@
                     //let bytes = Uint8Array.from(atob(base64_string), c => c.charCodeAt(0));
                     //console.log(bytes);
 
-                    const linkSource = `data:application/pdf;base64,${base64_string}`;
+                    const linkSource = `data:application/zip;base64,${base64_string}`;
                     const downloadLink = document.createElement('a');
                     document.body.appendChild(downloadLink);
                 
@@ -76,11 +76,6 @@
                 <p>
                     <a href="https://github.com/Ch3shireDev/full-stack-horse">
                         Fork/star/pull request this project on GitHub!
-                    </a>
-                </p>
-                <p>
-                    <a href="https://experimental.fullstackhorse.com">
-                        Check out experimental branch!
                     </a>
                 </p>
             </div>
