@@ -1,25 +1,10 @@
 from flask_sqlalchemy import SQLAlchemy
-import pypyodbc
+import urllib.parse
 
-initialized = False
-
-def init_db(cursor):
-    cursor.execute("create table MESSAGES (ID int primary key identity(1,1), CONTENT varchar(max))")
-
-def get_cursor():
-    global initialized
-    
-    server = 'db'
-    database = 'master'
-    username = 'sa'
-    password = 'Passw0rd'
-
-    cnxn = pypyodbc.connect(f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}')
-    cursor = cnxn.cursor()
-
-    if not initialized:
-        init_db(cursor)
-        initialized = True
-    
-    return cursor
-
+def init_db(app):
+    params = urllib.parse.quote_plus(
+        'DRIVER={ODBC Driver 17 for SQL Server};Server=db;Database=master;UID=sa;PWD=Passw0rd;')
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc:///?odbc_connect=%s' % params
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    db = SQLAlchemy(app)
+    return db

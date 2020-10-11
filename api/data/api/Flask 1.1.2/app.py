@@ -1,33 +1,38 @@
 from flask import Flask, request, jsonify, make_response
-from db import get_cursor
-
+from db import init_db
 
 app = Flask(__name__)
+db = init_db(app)
+
+class Message(db.Model):
+    __tablename__ = 'MESSAGES'
+    id = db.Column(db.Integer, primary_key=True, name='ID', autoincrement=True)
+    content = db.Column(db.String, unique=False, nullable=True, name='CONTENT')
+
+    def __init__(self, content):
+        self.content = content
+
+    def as_dict(self):
+        return {'id': self.id, 'content': self.content}
+
+
+db.init_app(app)
+db.create_all()
 
 
 @app.route('/api/messages', methods=["GET"])
 def get_messages():
-    cursor = get_cursor()
-    cursor.execute('select ID, CONTENT from MESSAGES')
-    
-    response_body = []
-    
-    # while True:
-    #     row = cursor.fetchnone()
-    #     if not row:
-    #         break
-    #     _id, content = row
-    #     response_body.append({'id':_id, 'content':content})
-    
+    response_body = [row.as_dict() for row in Message.query.all()]
     return make_response(jsonify(response_body), 200)
 
 
 @app.route('/api/messages', methods=["POST"])
 def post_message():
-    cursor = get_cursor()
-    content = 'abc'
-    cursor.execute(f"insert into MESSAGES (content) values ('{content}')")
-    response_body = [{"id": 1, "content": "abc"}]
+    req_data = request.get_json(force=True)
+    message = Message(content=req_data['content'])
+    db.session.add(message)
+    db.session.commit()
+    response_body = message.as_dict()
     return make_response(jsonify(response_body), 200)
 
 

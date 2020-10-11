@@ -50,5 +50,9 @@ a{
     background-repeat: no-repeat;
     height:350px;
     margin:auto;
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
+}
+
+#download-button-container{
+    margin-top: 1rem;
 }

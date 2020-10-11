@@ -13,13 +13,26 @@
             name="description"
             content="Website containing example projects to jump start your full stack work. Projects written in ASP.NET Core, Django, Flask, Node.js, Express. Angular, Vue.js, React."
         >
-
-        <meta property="og:title" content="Full Stack Horse - example full stack projects generator" />
-        <meta property="og:description" content="Website containing example projects to jump start your full stack work. Projects written in ASP.NET Core, Django, Flask, Node.js, Express. Angular, Vue.js, React." />
-        <meta property="og:image" content="http://fullstackhorse.com/logo.webp" />
-        <meta property="og:type" content="programming" />
-        <meta property="og:url" content="http://fullstackhorse.com/" />
-    
+        <meta
+            property="og:title"
+            content="Full Stack Horse - example full stack projects generator"
+        >
+        <meta
+            property="og:description"
+            content="Website containing example projects to jump start your full stack work. Projects written in ASP.NET Core, Django, Flask, Node.js, Express. Angular, Vue.js, React."
+        >
+        <meta
+            property="og:image"
+            content="http://fullstackhorse.com/logo.webp"
+        >
+        <meta
+            property="og:type"
+            content="programming"
+        >
+        <meta
+            property="og:url"
+            content="http://fullstackhorse.com/"
+        >
         <link rel="stylesheet" href="style.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.5.0/jszip.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
@@ -28,29 +41,8 @@
             integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
             crossorigin="anonymous"
         ></script>
-
-
-
-        <script>
-            function downloadProject() {
-                $.get('/api/project', function(data){
-                    let base64_string = data.data;
-                    //let bytes = Uint8Array.from(atob(base64_string), c => c.charCodeAt(0));
-                    //console.log(bytes);
-
-                    const linkSource = `data:application/zip;base64,${base64_string}`;
-                    const downloadLink = document.createElement('a');
-                    document.body.appendChild(downloadLink);
-                
-                    downloadLink.href = linkSource;
-                    downloadLink.target = '_self';
-                    downloadLink.download = 'project.zip';
-                    downloadLink.click();
-                })
-        }
-        </script>
+        <script src="script.js"></script>
     </head>
-
     <body>
         <div id="content">
             <div id="header">
@@ -61,23 +53,27 @@
                 </p>
             </div>
             <div id="body">
-                <ul>
-                    <li>
-                        <a href="/data/ASP.NET-Core-3.1-EFCore-3.8.1-MSSQL-Docker.zip">
-                            (2020/10/03) ASP.NET Core 3.1 + EFCore 3.8.1 + MSSQL Linux + Docker
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/data/ASP.NET-Core-3.1-EFCore-3.1.8-Angular-10-MSSQL-Nginx-Docker.zip">
-                            (2020/10/03) ASP.NET Core 3.1 + EFCore 3.8.1 + MSSQL Linux + Angular 10 + Docker
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <button onclick="downloadProject()">
-                    Download generated project (experimental)
-                </button>
+                <div>
+                    <label for="apis">Select an API (backend):</label>
+                    <select id="apis"></select>
+                </div>
+                <div>
+                    <label for="clients">Select a client (frontend):</label>
+                    <select id="clients"></select>
+                </div>
+                <div>
+                    <label for="servers">Select a server:</label>
+                    <select id="servers"></select>
+                </div>
+                <div>
+                    <label for="platform">Select a platform:</label>
+                    <select id="platforms"></select>
+                </div>
+
+
+                <div id="download-button-container">
+                    <button onclick="downloadProject()">Download generated project</button>
+                </div>
             </div>
             <div id="footer">
                 <p>
@@ -88,10 +84,4 @@
             </div>
         </div>
     </body>
-
-
-
-
-
-
 </html>
