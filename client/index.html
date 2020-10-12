@@ -29,24 +29,24 @@
                 </p>
             </div>
             <div id="body">
-                <div>
+                <div class="selector-container">
                     <label for="apis">Select an API (backend):</label>
                     <select id="apis"></select>
                 </div>
-                <div>
+                <div class="selector-container">
                     <label for="clients">Select a client (frontend):</label>
                     <select id="clients"></select>
                 </div>
-                <div>
+                <div class="selector-container">
                     <label for="servers">Select a server:</label>
                     <select id="servers"></select>
                 </div>
-                <div>
+                <div class="selector-container">
                     <label for="platform">Select a platform:</label>
                     <select id="platforms"></select>
                 </div>
                 <div id="download-button-container">
-                    <button onclick="downloadProject()">Download generated project</button>
+                    <button id="download-button" onclick="downloadProject()">Download generated project</button>
                 </div>
             </div>
             <div id="footer">
