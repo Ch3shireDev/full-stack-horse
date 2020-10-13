@@ -10,10 +10,14 @@ html {
 	flex-direction: column;
 }
 
+#header p{
+	text-align: justify;
+}
+
 #content {
 	flex-grow: 1;
-	max-width: 800px;
-	padding: 0 10px;
+	max-width: 550px;
+	padding: 0 20px;
 	margin: 40px auto;
 	margin-top: 0;
 	display: flex;

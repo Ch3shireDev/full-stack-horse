@@ -28,6 +28,7 @@ function getData(){
         data.clients.forEach(x=>{$('#clients').append(`<option value="${x}">${x}</option>`) });
         data.servers.forEach(x=>{$('#servers').append(`<option value="${x}">${x}</option>`) });
         data.platforms.forEach(x=>{$('#platforms').append(`<option value="${x}">${x}</option>`) });
+        data.databases.forEach(x=>{$('#databases').append(`<option value="${x}">${x}</option>`) });
     });
 }
 

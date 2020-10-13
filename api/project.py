@@ -31,6 +31,10 @@ def get_platforms():
     return get_dirs('platform')
 
 
+def get_databases():
+    return ['SQL Server 2017']
+
+
 def get_project(api='ASP.NET Core 3.1 EF Core 3.8.1', client='Angular 10', server='Nginx', platform="Docker"):
     path = os.path.dirname(os.path.realpath(__file__))
 

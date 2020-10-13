@@ -25,6 +25,7 @@ def get_data():
                      "clients": p.get_clients(),
                      "servers": p.get_servers(),
                      "platforms": p.get_platforms(),
+                     "databases": p.get_databases(),
                      }
     return make_response(jsonify(response_body), 200)
 
