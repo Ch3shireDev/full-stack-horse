@@ -60,7 +60,6 @@ a {
 
 .selector-container {
 	display: flex;
-	/* background:red; */
 	margin: 1rem 0;
 }
 
@@ -105,11 +104,17 @@ a {
 
 #download-button {
 	background-color: #4caf50;
-	border: none;
+	border:none;
 	color: white;
 	padding: 15px 32px;
 	text-align: center;
 	text-decoration: none;
 	font-size: 16px;
 	align-self: center;
+	border-radius: 2px;
+}
+
+#download-button:hover{
+	box-shadow: 0 0 5px #888;
+	cursor: pointer;
 }
