@@ -118,3 +118,16 @@ a {
 	box-shadow: 0 0 5px #888;
 	cursor: pointer;
 }
+
+#footer {
+	display:flex;
+	margin: 2rem auto;
+}
+
+#footer .note{
+	margin-left:1rem;
+}
+
+.note a:hover{
+	color:#888;
+}
